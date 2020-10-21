@@ -1,0 +1,12 @@
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: HubSpot Deploy Action
+        uses: ./
+        with:
+          src_dir: resources
+          des_dir: resources
