@@ -19,5 +19,5 @@ runs:
       shell: bash
     - name: Deploy
       run: |
-        npx hs upload ${{ inputs.src_dir }} $INPUT_DEST_DIR --use-env
+        npx hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env
       shell: bash
