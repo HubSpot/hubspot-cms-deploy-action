@@ -11,10 +11,10 @@ inputs:
   dest_dir:
     description: Directory in account which project will be published to
     require: true
-  portal_id:
+  hubspot_portal_id:
     description: Secret
     require: true
-  personal_access_key:
+  hubspot_personal_access_key:
     description: Secret
     require: true
 runs:
