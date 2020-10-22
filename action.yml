@@ -12,10 +12,10 @@ inputs:
     description: Directory in account which project will be published to
     require: true
   portal_id:
-    description: secret
+    description: Target HubSpot account (Should be stored in secrets)
     required: true
   personal_access_key:
-    description: secret
+    description: HubSpot personal access key (Should be stored in secrets)
     required: true
 runs:
   using: "composite"
