@@ -20,7 +20,7 @@ runs:
     - name: Deploy
       env:
         HUBSPOT_PORTAL_ID: ${{ env.HUBSPOT_PORTAL_ID }}
-        HUBSPOT_PERSONAL_ACCESS_KEY: ${{ env.HubSpotPersonalAccessKey }}
+        HUBSPOT_PERSONAL_ACCESS_KEY: ${{ env.HUBSPOT_PERSONAL_ACCESS_KEY }}
       run: |
         npx hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env
       shell: bash
