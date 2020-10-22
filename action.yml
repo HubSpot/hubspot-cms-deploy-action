@@ -18,7 +18,7 @@ runs:
       run: npm install
       shell: bash
     - name: log
-      run: echo "${{ inputs.src_dir }}"
+      run: echo "npx hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env"
       shell: bash
     - name: Deploy
       run: |
