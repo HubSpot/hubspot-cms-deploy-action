@@ -1,0 +1,23 @@
+{
+  "name": "hubspot-cms-deploy-action",
+  "version": "1.0.0",
+  "description": "Deploy project to your HubSpot CMS account",
+  "main": "index.js",
+  "dependencies": {
+    "@hubspot/cms-cli": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HubSpot/hubspot-cms-deploy-action.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HubSpot/hubspot-cms-deploy-action/issues"
+  },
+  "homepage": "https://github.com/HubSpot/hubspot-cms-deploy-action#readme"
+}
