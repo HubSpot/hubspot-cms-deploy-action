@@ -11,6 +11,12 @@ inputs:
   dest_dir:
     description: Directory in account which project will be published to
     require: true
+  portal_id:
+    description: secret
+    required: true
+  personal_access_key:
+    description: secret
+    required: true
 runs:
   using: "composite"
   steps:
@@ -19,8 +25,8 @@ runs:
       shell: bash
     - name: Deploy
       env:
-        HUBSPOT_PORTAL_ID: ${{ env.HUBSPOT_PORTAL_ID }}
-        HUBSPOT_PERSONAL_ACCESS_KEY: ${{ env.HUBSPOT_PERSONAL_ACCESS_KEY }}
+        HUBSPOT_PORTAL_ID: ${{ inputs.portal_id }}
+        HUBSPOT_PERSONAL_ACCESS_KEY: ${{ inputs.personal_access_key }}
       run: |
         npx hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env
       shell: bash
