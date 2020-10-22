@@ -17,13 +17,10 @@ runs:
     - name: Install NPM deps
       run: npm install
       shell: bash
-    - name: log
-      env:
-
-        HUBSPOT_PERSONAL_ACCESS_KEY: ${{ secrets.HubSpotPersonalAccessKey }}
-      run: echo "env ${{ env.HUBSPOT_PORTAL_ID }}"
-      shell: bash
     - name: Deploy
+      env:
+        HUBSPOT_PORTAL_ID: ${{ env.HUBSPOT_PORTAL_ID }}
+        HUBSPOT_PERSONAL_ACCESS_KEY: ${{ env.HubSpotPersonalAccessKey }}
       run: |
         npx hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env
       shell: bash
