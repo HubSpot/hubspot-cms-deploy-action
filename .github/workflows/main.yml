@@ -9,7 +9,7 @@ jobs:
         uses: ./
         with:
           src_dir: resources
-          des_dir: resources
+          dest_dir: resources
         env:
           HUBSPOT_PORTAL_ID: ${{ secrets.HubSpotPortalId }}
           HUBSPOT_PERSONAL_ACCESS_KEY: ${{ secrets.HubSpotPersonalAccessKey }}
