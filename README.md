@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: HubSpot Deploy Action
-        uses: actions/hubspot-cms-deploy-action # TODO: Confirm this
+        uses: actions/hubspot-cms-deploy
         with:
           src_dir: <src>
           dest_dir: <src>
