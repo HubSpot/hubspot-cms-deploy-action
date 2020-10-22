@@ -19,7 +19,7 @@ runs:
       shell: bash
     - name: log
       env:
-        HUBSPOT_PORTAL_ID: ${{ secrets.HubSpotPortalId }}
+        HUBSPOT_PORTAL_ID: "test"
         HUBSPOT_PERSONAL_ACCESS_KEY: ${{ secrets.HubSpotPersonalAccessKey }}
       run: echo "env ${{ HUBSPOT_PORTAL_ID }}"
       shell: bash
