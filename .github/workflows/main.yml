@@ -10,6 +10,7 @@ jobs:
         with:
           src_dir: resources
           dest_dir: resources
-          portal_id: ${{ secrets.HubSpotPortalId }}
+          # portal_id: ${{ secrets.HubSpotPortalId }}
+          portal_id: 123
           personal_access_key: ${{ secrets.HubSpotPersonalAccessKey }}
 

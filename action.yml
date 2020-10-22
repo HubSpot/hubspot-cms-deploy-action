@@ -23,6 +23,9 @@ runs:
     - name: Install NPM deps
       run: npm install
       shell: bash
+    - name: debug
+      run: echo "${{ inputs.portal_id }}"
+      shell: bash
     - name: Deploy
       env:
         HUBSPOT_PORTAL_ID: ${{ inputs.portal_id }}
