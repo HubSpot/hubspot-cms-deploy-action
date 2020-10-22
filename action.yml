@@ -18,7 +18,7 @@ runs:
       run: npm install
       shell: bash
     - name: log
-      run: echo "npx hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env"
+      run: echo "env ${{ HUBSPOT_PORTAL_ID }}"
       shell: bash
     - name: Deploy
       run: |
