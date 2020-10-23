@@ -7,7 +7,7 @@ In your GitHub repo, create two new [secrets](https://docs.github.com/en/free-pr
 - `HUBSPOT_PORTAL_ID` - This is your HubSpot account ID
 - `HUBSPOT_PERSONAL_ACCESS_KEY` - Your [personal access key](https://developers.hubspot.com/docs/cms/personal-cms-access-key)
 
-This guide walks through setting up an new workflow file that automatically uploads new changes on your `main` branch to your HubSpot CMS account. If you're adding a deployment step to an existing workflow, you can [skip ahead](#integrating-into-an-existing-workflow).
+This guide walks through setting up a new workflow file that automatically uploads new changes on your `main` branch to your HubSpot CMS account. If you're adding a deployment step to an existing workflow, you can [skip ahead](#integrating-into-an-existing-workflow).
 
 1. In your project, create a GitHub Action workflow file at `.github/workflows/main.yml`
 2. Copy the following example workflow into your `main.yml` file.
