@@ -1,0 +1,14 @@
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: HubSpot Deploy Action
+        uses: ./
+        with:
+          src_dir: resources
+          dest_dir: resources
+          portal_id: ${{ secrets.hubspot_portal_id }}
+          personal_access_key: ${{ secrets.hubspot_personal_access_key }}
