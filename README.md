@@ -20,8 +20,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
       - name: HubSpot Deploy Action
-        uses: actions/hubspot-cms-deploy
+        uses: HubSpot/hubspot-cms-deploy-action@v.1.1
         with:
           src_dir: <src>
           dest_dir: <src>
@@ -38,7 +40,7 @@ jobs:
 To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, add the following step:
 ```yaml
 - name: HubSpot Deploy Action
-  uses: actions/hubspot-cms-deploy
+  uses: HubSpot/hubspot-cms-deploy-action@v.1.1
   with:
     src_dir: <src>
     dest_dir: <src>
