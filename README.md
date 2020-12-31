@@ -40,7 +40,7 @@ jobs:
 To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, add the following step:
 ```yaml
 - name: HubSpot Deploy Action
-  uses: HubSpot/hubspot-cms-deploy-action@v.1.1
+  uses: HubSpot/hubspot-cms-deploy-action@v1.2
   with:
     src_dir: <src>
     dest_dir: <src>
