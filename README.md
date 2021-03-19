@@ -48,6 +48,8 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
     personal_access_key: ${{ secrets.hubspot_personal_access_key }}
 ```
 
+*Note:* You can configure your action to run based on different criteria, such as pushing to a QA branch. Learn more about events that trigger actions [here](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
+
 ## Action Spec
 ### Inputs
 - `src_dir` - Project directory in repo
