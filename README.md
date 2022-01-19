@@ -53,8 +53,8 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
 - name: HubSpot Deploy Action
   uses: HubSpot/hubspot-cms-deploy-action@v1.5
   with:
-    src_dir: <src>
-    dest_dir: <src>
+    src_dir: <src> ## ex. src
+    dest_dir: <src> ## ex. my-theme
     portal_id: ${{ secrets.hubspot_portal_id }}
     personal_access_key: ${{ secrets.hubspot_personal_access_key }}
 ```
@@ -63,7 +63,7 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
 
 ## Action Spec
 ### Inputs
-- `src_dir` - Project directory in repo
+- `src_dir` - Project directory relative to the repo
 - `dest_dir` - Target directory in HubSpot
 
 ### Secrets
