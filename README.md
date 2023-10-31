@@ -23,10 +23,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.3
       - name: HubSpot Deploy Action
-        uses: HubSpot/hubspot-cms-deploy-action@v1.5
+        uses: HubSpot/hubspot-cms-deploy-action@v1.7
         with:
-          src_dir: <src>
-          dest_dir: <src>
+          src_dir: <src> ## ex. src
+          dest_dir: <src> ## ex. my-theme
           portal_id: ${{ secrets.hubspot_portal_id }}
           personal_access_key: ${{ secrets.hubspot_personal_access_key }}
 ```
@@ -37,7 +37,7 @@ jobs:
 *Note:* Do not change the `portal_id` or `personal_access_key` values in your workflow. Auth related values should only be stored as GitHub secrets.
 
 ### Deploying to a staging account
-If you'd like to auto-deploy to a staging branch, you can create an additional workflow that runs on `push` your QA branch and deploy to a different HubSpot. account
+If you'd like to auto-deploy to a staging account you have in HubSpot, you can create an additional workflow that runs on `push` to your associated stanging branch in your repo.
 ```yaml
 on:
   push:
@@ -51,7 +51,7 @@ portal_id: ${{ secrets.staging_account_id }}
 To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, add the following step:
 ```yaml
 - name: HubSpot Deploy Action
-  uses: HubSpot/hubspot-cms-deploy-action@v1.5
+  uses: HubSpot/hubspot-cms-deploy-action@v1.7
   with:
     src_dir: <src> ## ex. src
     dest_dir: <src> ## ex. my-theme
