@@ -7,7 +7,8 @@ Automatically deploy a HubSpot CMS project to your account 🚀
 ## Usage
 In your GitHub repo, create one new [secret](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for:
 - `HUBSPOT_PERSONAL_ACCESS_KEY` - Your [personal access key](https://developers.hubspot.com/docs/cms/personal-cms-access-key)
-Then create a [variable](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#creating-configuration-variables-for-a-repository) (in the same interface as secrets)
+
+Then create a [variable](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#creating-configuration-variables-for-a-repository) (in the same interface as secrets):
 - `HUBSPOT_ACCOUNT_ID` - This is your [HubSpot account ID](https://knowledge.hubspot.com/account-management/manage-multiple-hubspot-accounts#:~:text=Check%20your%20current%20account,name%20and%20unique%20Hub%20ID.)
 
 This guide walks through setting up a new workflow file that automatically uploads new changes on your `main` branch to your HubSpot CMS account. If you're adding a deployment step to an existing workflow, you can [skip ahead](#integrating-into-an-existing-workflow).
