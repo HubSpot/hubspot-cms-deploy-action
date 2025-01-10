@@ -4,7 +4,7 @@ Automatically deploy a HubSpot CMS project to your account 🚀
 
 ## Usage
 In your GitHub repo, create two new [secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for:
-- `HUBSPOT_PORTAL_ID` - This is your HubSpot account ID
+- `HUBSPOT_ACCOUNT_ID` - This is your HubSpot account ID
 - `HUBSPOT_PERSONAL_ACCESS_KEY` - Your [personal access key](https://developers.hubspot.com/docs/cms/personal-cms-access-key)
 
 This guide walks through setting up a new workflow file that automatically uploads new changes on your `main` branch to your HubSpot CMS account. If you're adding a deployment step to an existing workflow, you can [skip ahead](#integrating-into-an-existing-workflow).
@@ -27,14 +27,14 @@ jobs:
         with:
           src_dir: <src> ## ex. src
           dest_dir: <src> ## ex. my-theme
-          portal_id: ${{ secrets.hubspot_portal_id }}
+          account_id: ${{ secrets.hubspot_portal_id }}
           personal_access_key: ${{ secrets.hubspot_personal_access_key }}
 ```
 3. Replace the `src_dir` with the directory of your CMS project in your repo
 4. Replace the `dest_dir` with the directory it should be uploaded to in your target account
 5. Commit and merge your changes
 
-*Note:* Do not change the `portal_id` or `personal_access_key` values in your workflow. Auth related values should only be stored as GitHub secrets.
+*Note:* Do not change the `account_id` or `personal_access_key` values in your workflow. Auth related values should only be stored as GitHub secrets.
 
 ### Deploying to a staging account
 If you'd like to auto-deploy to a staging account you have in HubSpot, you can create an additional workflow that runs on `push` to your associated stanging branch in your repo.
@@ -44,7 +44,7 @@ on:
     branches:
     - qa
 ...
-portal_id: ${{ secrets.staging_account_id }}
+account_id: ${{ secrets.staging_account_id }}
 ```
 
 ### Integrating into an existing workflow
@@ -55,7 +55,7 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
   with:
     src_dir: <src> ## ex. src
     dest_dir: <src> ## ex. my-theme
-    portal_id: ${{ secrets.hubspot_portal_id }}
+    account_id: ${{ secrets.hubspot_portal_id }}
     personal_access_key: ${{ secrets.hubspot_personal_access_key }}
 ```
 
@@ -67,5 +67,5 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
 - `dest_dir` - Target directory in HubSpot
 
 ### Secrets
-- `HUBSPOT_PORTAL_ID` - Target account id
+- `HUBSPOT_ACCOUNT_ID` - Target account id
 - `HUBSPOT_PERSONAL_ACCESS_KEY` - Authentication key
