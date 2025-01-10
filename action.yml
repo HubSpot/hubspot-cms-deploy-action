@@ -1,6 +1,6 @@
 name: HubSpot CMS Deploy
 author: HubSpot
-description: Publish website files to your HubSpot CMS account
+description: Publish website files to your HubSpot account
 branding:
   icon: "upload-cloud"
   color: "orange"
