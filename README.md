@@ -2,6 +2,9 @@
 
 Automatically deploy a HubSpot CMS project to your account 🚀
 
+## BREAKING CHANGE in v2
+If you are upgrading from an older version of the GitHub Deploy action, we renamed the `HUBSPOT_PORTAL_ID` secret to now be a variable called `HUBSPOT_ACCOUNT_ID`. This change reflects our efforts to be consistent in how we refer to concepts in HubSpot.
+
 ## Usage
 In your GitHub repo, create two new [secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for:
 - `HUBSPOT_ACCOUNT_ID` - This is your HubSpot account ID
