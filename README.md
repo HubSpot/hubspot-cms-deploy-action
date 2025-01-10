@@ -27,7 +27,7 @@ jobs:
         with:
           src_dir: <src> ## ex. src
           dest_dir: <src> ## ex. my-theme
-          account_id: ${{ vars.hubspot_account_id || secrets.hubspot_portal_id }}
+          portal_id: ${{ secrets.hubspot_portal_id }}
           personal_access_key: ${{ secrets.hubspot_personal_access_key }}
 ```
 3. Replace the `src_dir` with the directory of your CMS project in your repo
@@ -44,7 +44,7 @@ on:
     branches:
     - qa
 ...
-account_id: ${{ vars.hubspot_account_id || secrets.hubspot_portal_id }}
+portal_id: ${{ secrets.hubspot_portal_id }}
 ```
 
 ### Integrating into an existing workflow
@@ -55,7 +55,7 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
   with:
     src_dir: <src> ## ex. src
     dest_dir: <src> ## ex. my-theme
-    account_id: ${{ vars.hubspot_account_id || secrets.hubspot_portal_id }}
+    portal_id: ${{ secrets.hubspot_portal_id }}
     personal_access_key: ${{ secrets.hubspot_personal_access_key }}
 ```
 
@@ -68,6 +68,4 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
 
 ### Secrets
 - `HUBSPOT_PERSONAL_ACCESS_KEY` - Authentication key
-
-### Variables
-- `HUBSPOT_ACCOUNT_ID` - Target account id
+- `HUBSPOT_PORTAL_ID` - Target account id
