@@ -2,13 +2,13 @@
 
 Automatically deploy a HubSpot CMS project to your account 🚀
 
-## BREAKING CHANGE in v2
-If you are upgrading from an older version of the GitHub Deploy action, we renamed the `HUBSPOT_PORTAL_ID` secret to now be a variable called `HUBSPOT_ACCOUNT_ID`. This change reflects our efforts to be consistent in how we refer to concepts in HubSpot.
+
 
 ## Usage
-In your GitHub repo, create two new [secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for:
-- `HUBSPOT_ACCOUNT_ID` - This is your HubSpot account ID
+In your GitHub repo, create one new [secret](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for:
 - `HUBSPOT_PERSONAL_ACCESS_KEY` - Your [personal access key](https://developers.hubspot.com/docs/cms/personal-cms-access-key)
+Then create a [variable](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#creating-configuration-variables-for-a-repository) (in the same interface as secrets)
+- `HUBSPOT_ACCOUNT_ID` - This is your [HubSpot account ID](https://knowledge.hubspot.com/account-management/manage-multiple-hubspot-accounts#:~:text=Check%20your%20current%20account,name%20and%20unique%20Hub%20ID.)
 
 This guide walks through setting up a new workflow file that automatically uploads new changes on your `main` branch to your HubSpot CMS account. If you're adding a deployment step to an existing workflow, you can [skip ahead](#integrating-into-an-existing-workflow).
 
@@ -30,7 +30,7 @@ jobs:
         with:
           src_dir: <src> ## ex. src
           dest_dir: <src> ## ex. my-theme
-          account_id: ${{ secrets.hubspot_portal_id }}
+          account_id: ${{ vars.hubspot_account_id || secrets.hubspot_portal_id }}
           personal_access_key: ${{ secrets.hubspot_personal_access_key }}
 ```
 3. Replace the `src_dir` with the directory of your CMS project in your repo
@@ -47,7 +47,7 @@ on:
     branches:
     - qa
 ...
-account_id: ${{ secrets.staging_account_id }}
+account_id: ${{ vars.hubspot_account_id || secrets.hubspot_portal_id }}
 ```
 
 ### Integrating into an existing workflow
@@ -58,7 +58,7 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
   with:
     src_dir: <src> ## ex. src
     dest_dir: <src> ## ex. my-theme
-    account_id: ${{ secrets.hubspot_portal_id }}
+    account_id: ${{ vars.hubspot_account_id || secrets.hubspot_portal_id }}
     personal_access_key: ${{ secrets.hubspot_personal_access_key }}
 ```
 
@@ -70,5 +70,9 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
 - `dest_dir` - Target directory in HubSpot
 
 ### Secrets
-- `HUBSPOT_ACCOUNT_ID` - Target account id
 - `HUBSPOT_PERSONAL_ACCESS_KEY` - Authentication key
+
+#### Deprecated secret
+- `HUBSPOT_PORTAL_ID` - Target account id. This was deprecated in favor of `HUBSPOT_ACCOUNT_ID`, this is more consistent with how we refer to accounts, additionally we moved it to be a variable since GitHub variables now exist and allow for you to be able to see and modify the value. The Account ID does not need the same protection that an authentication key does.
+### Variables
+- `HUBSPOT_ACCOUNT_ID` - Target account id
