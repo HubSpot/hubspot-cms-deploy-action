@@ -11,7 +11,7 @@ inputs:
   dest_dir:
     description: Directory in account which project will be published to
     require: true
-  portal_id:
+  account_id:
     description: Target HubSpot account (Should be stored in secrets)
     required: true
   personal_access_key:
@@ -26,7 +26,7 @@ runs:
         node-version: "22.x"
     - name: Deploy
       env:
-        HUBSPOT_ACCOUNT_ID: ${{ inputs.portal_id }}
+        HUBSPOT_ACCOUNT_ID: ${{ inputs.account_id }}
         HUBSPOT_PERSONAL_ACCESS_KEY: ${{ inputs.personal_access_key }}
       run: |
         npx --yes --package=@hubspot/cli@latest --call='hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env'
