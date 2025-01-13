@@ -1,6 +1,6 @@
 name: HubSpot CMS Deploy
 author: HubSpot
-description: Publish website files to your HubSpot CMS account
+description: Publish website files to your HubSpot account
 branding:
   icon: "upload-cloud"
   color: "orange"
@@ -11,7 +11,7 @@ inputs:
   dest_dir:
     description: Directory in account which project will be published to
     require: true
-  portal_id:
+  account_id:
     description: Target HubSpot account (Should be stored in secrets)
     required: true
   personal_access_key:
@@ -23,11 +23,11 @@ runs:
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: "20.x"
+        node-version: "22.x"
     - name: Deploy
       env:
-        HUBSPOT_PORTAL_ID: ${{ inputs.portal_id }}
+        HUBSPOT_ACCOUNT_ID: ${{ inputs.account_id }}
         HUBSPOT_PERSONAL_ACCESS_KEY: ${{ inputs.personal_access_key }}
       run: |
-        npx --yes --package=@hubspot/cli@latest --call='hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env'
+        npx --yes --package=@hubspot/cli@7 --call='hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env'
       shell: bash
