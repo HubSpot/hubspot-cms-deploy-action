@@ -76,4 +76,3 @@ To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, a
 - `HUBSPOT_PERSONAL_ACCESS_KEY` - Authentication key
 #### Deprecated secret
 - `HUBSPOT_PORTAL_ID` - Target account id. This was deprecated in favor of `HUBSPOT_ACCOUNT_ID`, this is more consistent with how we refer to accounts, additionally we moved it to be a variable since GitHub variables now exist and allow for you to be able to see and modify the value. The Account ID does not need the same protection that an authentication key does.
-
