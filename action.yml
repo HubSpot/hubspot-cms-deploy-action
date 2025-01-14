@@ -29,5 +29,5 @@ runs:
         HUBSPOT_ACCOUNT_ID: ${{ inputs.account_id }}
         HUBSPOT_PERSONAL_ACCESS_KEY: ${{ inputs.personal_access_key }}
       run: |
-        npx --yes --package=@hubspot/cli@7 --call='hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env'
+        npx --yes --package=@hubspot/cli@^7 --call='hs upload ${{ inputs.src_dir }} ${{ inputs.dest_dir }} --use-env'
       shell: bash
