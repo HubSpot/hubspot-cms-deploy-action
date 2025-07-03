@@ -55,7 +55,7 @@ account_id: ${{ vars.hubspot_account_id || secrets.hubspot_portal_id }}
 To add HubSpot CMS deployment as a step in an existing GitHub Action workflow, add the following step:
 ```yaml
 - name: HubSpot Deploy Action
-  uses: HubSpot/hubspot-cms-deploy-action@v2
+  uses: HubSpot/hubspot-cms-deploy-action@v2.0.1
   with:
     src_dir: <src> ## ex. src
     dest_dir: <src> ## ex. my-theme
